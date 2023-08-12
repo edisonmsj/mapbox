@@ -27,6 +27,6 @@ def search_place_view(request):
         # Perform any actions you need with the place_name
         # For now, let's just print it to the console
         print("Place name submitted:", place_name)
-    return HttpResponse("Form submitted")
+    return HttpResponse("Form submitted", place_name)
 
     
