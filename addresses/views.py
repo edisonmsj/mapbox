@@ -2,6 +2,7 @@ from typing import Any, Dict
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
 from .models import Address
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -18,4 +19,14 @@ class AddressView(CreateView):
         context ['addresses'] = Address.objects.all
 
         return context
+    
+
+def search_place_view(request):
+    if request.method == 'POST':
+        place_name = request.POST.get('place', '')  # Get the submitted place name
+        # Perform any actions you need with the place_name
+        # For now, let's just print it to the console
+        print("Place name submitted:", place_name)
+    return HttpResponse("Form submitted")
+
     

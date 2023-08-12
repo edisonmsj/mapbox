@@ -49,7 +49,8 @@
 <body>
     <div class="container">
         <div class="title">Know your place</div>
-        <form id="search-form" class="search-form">
+        <form id="search-form" class="search-form" method="post" action="{% url 'search_place' %}">
+            {% csrf_token %}
             <label for="place-input">Enter a place name:</label>
             <input type="text" id="place-input" name="place" placeholder="City, street, address">
             <button type="submit">Search</button>
@@ -129,21 +130,7 @@
         });
 
 
-
-
-        const searchForm = document.getElementById('search-form');
-        searchForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            const placeInput = document.getElementById('place-input');
-            const placeName = placeInput.value;
-
-            // You can use the 'placeName' variable to perform searches, geocoding, etc.
-            // For now, let's log it to the console.
-            console.log('Place name entered:', placeName);
-        });
     </script>
-
 
 </body>
 
